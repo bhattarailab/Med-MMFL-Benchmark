@@ -1,0 +1,40 @@
+cff-version: 1.2.0
+title: "Med-MMFL: A Multimodal Federated Learning Benchmark in Healthcare"
+message: "If you use this work, please cite it as below."
+license: Apache-2.0
+
+authors:
+  - given-names: Aavash
+    family-names: Chhetri
+  - given-names: Bibek
+    family-names: Niroula
+  - given-names: Pratik
+    family-names: Shrestha
+  - given-names: Yash Raj
+    family-names: Shrestha
+  - given-names: Lesley A
+    family-names: Anderson
+  - given-names: Prashnna K
+    family-names: Gyawali
+  - given-names: Loris
+    family-names: Bazzani
+  - given-names: Binod
+    family-names: Bhattarai
+
+date-released: "2026"
+
+identifiers:
+  - type: arxiv
+    value: "2602.04416"
+
+url: "https://arxiv.org/abs/2602.04416"
+repository-code: "https://github.com/bhattarailab/Med-MMFL-Benchmark"
+
+keywords:
+  - federated-learning
+  - multimodal
+  - medical-imaging
+  - benchmark
+  - deep-learning
+
+abstract: "Med-MMFL is a multimodal federated learning benchmark designed for healthcare applications, enabling standardized evaluation across distributed medical datasets."

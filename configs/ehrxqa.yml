@@ -1,0 +1,60 @@
+dataset:
+  img_path: /scratch/achhetr1/.tmp/bench_data/mimic-cxr-resized/files/
+  ann_path: /scratch/achhetr1/.tmp/ehrxqa/ehrxray_qa/
+  dset_name: ehrxqa
+  view: federated
+  partition: iid
+  clients: 3
+
+dataloader:
+  batch_size: 4 #32
+  eval_batch_size: 4 #32
+  num_workers: 8
+  crop_size: 128
+
+model:
+  name: blip_ehrxqa
+  pretrained_model_name: Salesforce/blip-vqa-base
+  max_length: 64
+
+# optimizer configuration
+optimizer:
+  name: adam
+  learning_rate: 1e-5
+  weight_decay: 1e-5
+  momentum: 0.9
+
+# lr scheduler configuration
+lr_scheduler:
+  name: cosine_annealing
+  T_max: 40
+  warmup: 0
+
+# criterion configuration
+criterion:
+  name: DiceBCELoss
+
+metrics:
+  - qa
+  
+# detailed training configuration
+train:
+  total_epoch: 30
+  local_epoch: 1
+  model_save_path: model_last.pth
+  best_model_save_path: model_best.pth
+  pretrain_epochs: 0
+  finetune_epochs: 30
+  finetune_lr_decay: 0.1
+  log_step: 1000
+  grad_clip: 2
+  val_epochs: 10
+  pretrain_val_epochs: 10
+  use_fp16: True
+  output_file: model.log
+  partition: hetero
+  interintra_weight: 0.5
+  kd_weight: 0.3
+  server_train: True
+  moon_mu: 0.1
+  moon_tempr: 0.5

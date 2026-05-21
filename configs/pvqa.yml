@@ -1,0 +1,53 @@
+dataset:
+  img_path:  /scratch/achhetr1/.tmp/pvqa/pathvqa/pvqa/images/all
+  ann_path: /scratch/achhetr1/.tmp/pvqa/cgmvqa/pathVQA
+  dset_name: pathvqa
+  view: federated
+  partition: iid
+  clients: 3
+
+dataloader:
+  batch_size: 16
+  eval_batch_size: 16
+  num_workers: 2
+  collate_fn: vqa_collate_fn
+
+
+model:
+  name: blip_yesno_vqa
+  pretrained_model_name: Salesforce/blip-vqa-base
+
+optimizer:
+  name: adam
+  learning_rate: 1e-5
+  weight_decay: 1e-4
+  momentum: 0.9
+
+# lr scheduler configuration
+lr_scheduler:
+  name: cosine_annealing
+  T_max: 30
+  warmup: 0
+
+# criterion configuration
+criterion:
+  name: CrossEntropyLoss
+
+# detailed training configuration
+train:
+  local_epoch: 1
+  model_save_path: model_last.pth
+  best_model_save_path: model_best.pth
+  use_fp16: True
+  output_file: model.log
+  partition: iid
+  grad_clip: 2
+  interintra_weight: 0.5
+  kd_weight: 0.3
+  server_train: True
+  moon_mu: 0.1
+  moon_tempr: 0.5
+
+metrics:
+  - accuracy
+  - f1

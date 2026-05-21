@@ -1,0 +1,57 @@
+dataset:
+  img_path: /scratch/bniroula/bratsdata 
+  ann_path: /scratch/bniroula/mmfl_benchmark/splits  
+  dset_name: brats24
+  view: federated
+  partition: natural
+
+
+dataloader:
+  batch_size: 2
+  eval_batch_size: 2
+  num_workers: 2
+  crop_size: 90
+
+model:
+  name: rfnet 
+  in_channels: 4
+  n_classes: 4
+  n_channels: 48
+  region_fusion_epochs: 0 #number of epochs after which region fusion is performed
+
+# optimizer configuration
+optimizer:
+  name: adam
+  learning_rate: 2e-4
+  weight_decay: 1e-5
+
+# lr scheduler configuration
+lr_scheduler:
+  name: cosine_annealing
+  T_max: 30
+  warmup: 0
+
+
+# criterion configuration
+criterion:
+  name: DiceBCELoss
+
+# detailed training configuration
+train:
+  local_epoch: 3
+  model_save_path: model_last.pth
+  best_model_save_path: model_best.pth
+  use_fp16: True
+  output_file: model.log
+  grad_clip: 2
+  max_trainers: 1
+  kd_weight: 0.03
+  interintra_weight: 0.002
+  moon_mu: 0.1
+  moon_tempr: 0.5
+  proximal_mu: 0.1
+
+metrics:
+  - dice
+  - jaccard
+

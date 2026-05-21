@@ -1,0 +1,58 @@
+dataset:
+  img_path: /scratch/achhetr1/.tmp/symile/1.0.0/data_npy #/scratch/achhetr1/benchmark/fed-multimodal-benchmark/tmp/physionet.org/files/symile-mimic/1.0.0/data_npy
+  dset_name: symile_mimic
+  view: federated
+  partition: homoc3
+
+dataloader:
+  batch_size_train: 70
+  batch_size_val: 70
+  batch_size_test: 70
+  num_workers: 8
+
+model:
+  name: symile_mimic
+  d: 8192
+  freeze_logit_scale: False 
+  logit_scale_init: -7
+  pretrained: False
+  # in_channels: 4
+  # n_classes: 3
+  # n_channels: 48
+
+# optimizer configuration
+optimizer:
+  name: AdamW
+  learning_rate: 1e-3
+  weight_decay: 1e-3
+
+# lr scheduler configuration
+lr_scheduler:
+  name: cosine_annealing
+  T_max: 30
+  warmup: 0
+
+# criterion configuration
+criterion:
+  name: clip
+
+# detailed training configuration
+train:
+  local_epoch: 1
+  model_save_path: model_last.pth
+  best_model_save_path: model_best.pth
+  use_fp16: True
+  output_file: model.log
+  partition: homoc3
+  grad_clip: 2
+  negative_sampling: n_squared
+  max_trainers: 1
+  mu: 0.1
+  moon_mu: 0.5
+  moon_tempr: 0.5
+  kd_weight: 0.03
+  interintra_weight: 0.002
+
+metrics:
+  - dice
+  - jaccard
