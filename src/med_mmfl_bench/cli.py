@@ -1,4 +1,4 @@
-"""Unified command-line interface for  Med-MMFL: Multimodal Federated Learning Benchmark in Healthcare.
+"""Unified command-line interface for  Med-MMFL: A Multimodal Federated Learning Benchmark in Healthcare.
 
 Provides a ``med-mmfl-bench`` CLI entry point for running federated
 learning experiments. Installed via ``pip install -e .`` and exposed
@@ -53,8 +53,7 @@ def _create_parser() -> argparse.ArgumentParser:
     """Build the argument parser."""
     parser = argparse.ArgumentParser(
         description=(
-            "Med-MMFL: Multimodal Federated Learning Benchmark"
-            "in Healthcare"
+            "Med-MMFL: A Multimodal Federated Learning Benchmark in Healthcare"
         ),
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog=(

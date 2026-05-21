@@ -1,15 +1,15 @@
-"""Fed-Multimodal-Benchmark: A benchmark for federated learning on multimodal medical data.
+"""Med-MMFL-Benchmark:  Multimodal Federated Learning Benchmark in Healthcare
 
 This package provides implementations of popular federated learning algorithms
-(FedAvg, FedProx, SCAFFOLD, MOON, CreamFL) applied to multimodal medical
-datasets including SYMILE-MIMIC (CXR + ECG + Labs) and MIMIC-CXR (Image + Text).
+(FedAvg, FedProx, SCAFFOLD, MOON, FedNova, CreamFL) applied to multimodal medical
+datasets.
 
 Example:
-    >>> from fed_mm_bench.utils.config import parse_config
+    >>> from med_mmfl_bench.utils.config import parse_config
     >>> config = parse_config("configs/fedavg.yml")
 """
 
-__version__ = "0.1.0"
+__version__ = "1.0.0"
 
 __all__ = [
     "__version__",
