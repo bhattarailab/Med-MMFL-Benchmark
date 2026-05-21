@@ -40,9 +40,9 @@ Federated learning (FL) enables collaborative model training across decentralize
 | **FedAvg** | [Link](https://arxiv.org/abs/1602.05629) | Communication-efficient averaging |
 | **FedProx** | [Link](https://arxiv.org/abs/1812.06127) | Handles system heterogeneity | 
 | **SCAFFOLD** | [Link](https://arxiv.org/abs/1910.06378) | Variance reduction via control variates | 
-| **FedNova** | [Link](https://arxiv.org/abs/1907.01154) | Non-IID optimization |
+| **FedNova** | [Link](https://arxiv.org/abs/2007.07481) | Non-IID optimization |
 | **MOON** | [Link](https://arxiv.org/abs/2103.16257) | Model contrastive learning |
-| **CreamFL** | [Link](https://arxiv.org/abs/2210.15798) | Cross-modal distillation |
+| **CreamFL** | [Link](https://arxiv.org/abs/2302.08888) | Cross-modal distillation |
 
 **Add Your Own:** See [HOW_TO_EXTEND.md](HOW_TO_EXTEND.md) for adding new algorithms.
 
